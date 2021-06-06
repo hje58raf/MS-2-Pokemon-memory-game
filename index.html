@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" name="description" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="A card memory game with Pokemon matching a pair" />
+        <title>Pokemon Memory Game</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css" type="text/css" />
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+        <link rel="stylesheet" href="assets/css/style.css" />
+    </head>
+
+    <body>  
+        <!--Memory Game section-->
+<div class=" container-fluid game-container">
+    <div class="row">
+        <!--Difficulty level, instruction and moves container-->
+        <div class="col-lg-3 text-center">
+            <div class="ins">
+                <h4 class="text-uppercase">Pokemon Go..</h4>
+                <p class="lead">Memory card game of Pokemon. Gotta catch'em all!!</p>
+                <h4 class="text-uppercase">How to play?</h4>
+                <p class="lead">Match the card for each Pokemon. Make less moves to score more. Good Luck!
+                </p>
+            </div>
+            <div class="moves">
+                <div class="stars">
+                    <ul>
+                        <li><i class="fa fa-star"></i></li>
+                        <li> <i class="fa fa-star"></i> </li>
+                        <li> <i class="fa fa-star"></i> </li>
+                    </ul>
+                </div>
+                <span class="moves-counter">0</span>Move(s)
+                <span class="count-counter">0</span>Match(s)<br>
+                <div class="game-timer">Time: <span class="timer"> 00:00</span></div>
+                <div>
+                    <span><button class="restart-btn" onclick="restart()">Restart Game</button></span>
+                    <audio id="myAudio">
+                        <source src="assets/sound/music.mp3" type="audio/ogg" />
+                        <source src="assets/sound/music.mp3" type="audio/mpeg" />
+                    </audio>
+                    <span><button class="play-btn" onclick="pauseAudio()">Music Off</button></span>
+                </div>
+            </div>
+        </div>
+        <!--Difficulty level, instruction and moves container ends-->  
+         
+   
+    <!--Game section is referred from https://marina-ferreira.github.io/tutorials/js/memory-game/ -->  
+    <div class="col-lg-6">
+        <div class="memory-game">
+            <div class="memory-card" data-framework="bulbasaur">
+                <img class="front-face" src="assets/images/1.png" alt="pikachu">
+                <img class="back-face" src="assets/images/card-back.png" alt="Memory Card">
+            </div>
+            <div class="memory-card" data-framework="bulbasaur">
+                <img class="front-face" src="assets/images/1.png" alt="pikachu">
+                <img class="back-face" src="assets/images/card-back.png" alt="Memory Card">
+            </div>
+            
+            <div class="memory-card" data-framework="ivysaur">
+                <img class="front-face" src="assets/images/2.png" alt="mewtwo">
+                <img class="back-face" src="assets/images/card-back.png" alt="Memory Card">
+            </div>
+            <div class="memory-card" data-framework="ivysaur">
+                <img class="front-face" src="assets/images/2.png" alt="mewtwo">
+                <img class="back-face" src="assets/images/card-back.png" alt="Memory Card">
+            </div>
+            
+            <div class="memory-card" data-framework="venusaur">
+                <img class="front-face" src="assets/images/3.png" alt="meowth">
+                <img class="back-face" src="assets/images/card-back.png" alt="Memory Card">
+            </div>
+            <div class="memory-card" data-framework="venusaur">
+                <img class="front-face" src="assets/images/3.png" alt="meowth">
+                <img class="back-face" src="assets/images/card-back.png" alt="Memory Card">
+            </div>
+            
+            <div class="memory-card" data-framework="charmander">
+                <img class="front-face" src="assets/images/4.png" alt="jigglypuff">
+                <img class="back-face" src="assets/images/card-back.png" alt="Memory Card">
+            </div>
+            <div class="memory-card" data-framework="charmander">
+                <img class="front-face" src="assets/images/4.png" alt="jigglypuff">
+                <img class="back-face" src="assets/images/card-back.png" alt="Memory Card">
+            </div>
+            
+            <div class="memory-card" data-framework="charmeleon">
+                <img class="front-face" src="assets/images/5.png" alt="gengar">
+                <img class="back-face" src="assets/images/card-back.png" alt="Memory Card">
+            </div>
+            <div class="memory-card" data-framework="charmeleon">
+                <img class="front-face" src="assets/images/5.png" alt="gengar">
+                <img class="back-face" src="assets/images/card-back.png" alt="Memory Card">
+            </div>
+            
+            <div class="memory-card" data-framework="charizard">
+                <img class="front-face" src="assets/images/6.png" alt="eevee">
+                <img class="back-face" src="assets/images/card-back.png" alt="Memory Card">
+            </div>
+            <div class="memory-card" data-framework="charizard">
+                <img class="front-face" src="assets/images/6.png" alt="eevee">
+                <img class="back-face" src="assets/images/card-back.png" alt="Memory Card">
+            </div>
+            
+            <div class="memory-card" data-framework="squirtle">
+                <img class="front-face" src="assets/images/7.png" alt="charizard">
+                <img class="back-face" src="assets/images/card-back.png" alt="Memory Card">
+            </div>
+            <div class="memory-card" data-framework="squirtle">
+                <img class="front-face" src="assets/images/7.png" alt="charizard">
+                <img class="back-face" src="assets/images/card-back.png" alt="Memory Card">
+            </div>
+            
+            <div class="memory-card" data-framework="wartortle">
+                <img class="front-face" src="assets/images/8.png" alt="arcanine">
+                <img class="back-face" src="assets/images/card-back.png" alt="Memory Card">
+            </div>
+            <div class="memory-card" data-framework="wartortle">
+                <img class="front-face" src="assets/images/8.png"alt="arcanine">
+                <img class="back-face" src="assets/images/card-back.png" alt="Memory Card">
+            </div>
+        </div>
+    </div> 
+    <div class="col-lg-3 text-center">
+        <div class="ins">
+            <h4 class="text-uppercase">Pokemon Go..</h4>
+            <p class="lead">Memory card game of Pokemon. Gotta catch'em all!!</p>
+            <h4 class="text-uppercase">How to play?</h4>
+            <p class="lead">Match the card for each Pokemon. Make less moves to score more. Good Luck!
+            </p>
+        </div>
+        <div class="moves">
+            <div class="stars">
+                <ul>
+                    <li><i class="fa fa-star"></i></li>
+                    <li> <i class="fa fa-star"></i> </li>
+                    <li> <i class="fa fa-star"></i> </li>
+                </ul>
+            </div>
+            <span class="moves-counter">0</span>Move(s)
+            <span class="count-counter">0</span>Match(s)<br>
+            <div class="game-timer">Time: <span class="timer"> 00:00</span></div>
+            <div>
+                <span><button class="restart-btn" onclick="restart()">Restart Game</button></span>
+                <audio id="myAudio">
+                    <source src="assets/sound/music.mp3" type="audio/ogg" />
+                    <source src="assets/sound/music.mp3" type="audio/mpeg" />
+                </audio>
+                <span><button class="play-btn" onclick="pauseAudio()">Music Off</button></span>
+            </div>
+        </div>
+    </div>
+    <!--Difficulty level, instruction and moves container ends-->  
+      
+</div>
+</div>
+
+        
+   
+    </body>
+</html>
