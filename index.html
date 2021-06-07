@@ -11,42 +11,28 @@
         <link rel="stylesheet" href="assets/css/style.css" />
     </head>
 
-    <body>  
+    <body>
         <!--Memory Game section-->
 <div class=" container-fluid game-container">
-    <div class="row">
+    <div class="row  align-items-center">
+        <header>
+            <img clas="logo" src="assets/images/rsz_clipartkey_1343754.png">
+        </header>
         <!--Difficulty level, instruction and moves container-->
         <div class="col-lg-3 text-center">
-            <div class="ins">
-                <h4 class="text-uppercase">Pokemon Go..</h4>
-                <p class="lead">Memory card game of Pokemon. Gotta catch'em all!!</p>
-                <h4 class="text-uppercase">How to play?</h4>
-                <p class="lead">Match the card for each Pokemon. Make less moves to score more. Good Luck!
-                </p>
-            </div>
-            <div class="moves">
-                <div class="stars">
-                    <ul>
-                        <li><i class="fa fa-star"></i></li>
-                        <li> <i class="fa fa-star"></i> </li>
-                        <li> <i class="fa fa-star"></i> </li>
-                    </ul>
-                </div>
-                <span class="moves-counter">0</span>Move(s)
-                <span class="count-counter">0</span>Match(s)<br>
-                <div class="game-timer">Time: <span class="timer"> 00:00</span></div>
-                <div>
-                    <span><button class="restart-btn" onclick="restart()">Restart Game</button></span>
-                    <audio id="myAudio">
-                        <source src="assets/sound/music.mp3" type="audio/ogg" />
-                        <source src="assets/sound/music.mp3" type="audio/mpeg" />
-                    </audio>
-                    <span><button class="play-btn" onclick="pauseAudio()">Music Off</button></span>
+            <!-- Trigger/Open The Modal -->
+            <button id="myBtn">Open Modal</button>
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Some text in the Modal..</p>
                 </div>
             </div>
-        </div>
-        <!--Difficulty level, instruction and moves container ends-->  
-         
+        </div>    
    
     <!--Game section is referred from https://marina-ferreira.github.io/tutorials/js/memory-game/ -->  
     <div class="col-lg-6">
@@ -125,13 +111,6 @@
         </div>
     </div> 
     <div class="col-lg-3 text-center">
-        <div class="ins">
-            <h4 class="text-uppercase">Pokemon Go..</h4>
-            <p class="lead">Memory card game of Pokemon. Gotta catch'em all!!</p>
-            <h4 class="text-uppercase">How to play?</h4>
-            <p class="lead">Match the card for each Pokemon. Make less moves to score more. Good Luck!
-            </p>
-        </div>
         <div class="moves">
             <div class="stars">
                 <ul>
@@ -154,11 +133,15 @@
         </div>
     </div>
     <!--Difficulty level, instruction and moves container ends-->  
+
+    
+      
       
 </div>
 </div>
-
-        
-   
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="assets/js/scripts.js"></script>
     </body>
 </html>
